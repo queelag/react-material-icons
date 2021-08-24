@@ -1,0 +1,26 @@
+import { Icon, IconProps } from '@queelag/react-core'
+import React from 'react'
+
+/**
+ * Usage:
+ *
+ * ```typescript
+ * import { IconFolder } from '@queelag/react-material-icons'
+ *
+ * function App() {
+ *   return <IconFolder />
+ * }
+ * ```
+ *
+ * @category Component
+ */
+export function IconFolder(props: Omit<IconProps, 'svg'>) {
+  return (
+    <Icon
+      {...props}
+      fill={typeof props.fill === 'undefined' ? true : props.fill}
+      size={props.size || 16}
+      source={`<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10.59 4.59C10.21 4.21 9.7 4 9.17 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-1.41-1.41z"/></svg>`}
+    />
+  )
+}
