@@ -36,7 +36,7 @@ fs.readdirSync('./assets').forEach((v) => {
       ` * @category Component`,
       ` */`,
       `export function ${name}(props: Omit<IconProps, 'svg'>) {`,
-      `return <Icon {...props} fill={typeof props.fill === 'undefined' ? true : props.fill} size={props.size || 16} source={\`${svg}\`} />`,
+      `return <Icon {...props} fill={typeof props.fill === 'undefined' ? true : props.fill} size={props.size || 16} src={\`${svg}\`} />`,
       `}`,
       ``
     ].join('\n'),
