@@ -20,7 +20,7 @@ fs.readdirSync('./assets').forEach((v) => {
   tsx = prettier.format(
     [
       `import { Icon, IconProps } from '@queelag/react-core'`,
-      `import React from 'react'`,
+      `import React, { ForwardedRef, forwardRef } from 'react'`,
       ``,
       `/**`,
       ` * Usage:`,
@@ -35,9 +35,9 @@ fs.readdirSync('./assets').forEach((v) => {
       ` *`,
       ` * @category Component`,
       ` */`,
-      `export function ${name}(props: Omit<IconProps, 'svg'>) {`,
-      `return <Icon {...props} fill={typeof props.fill === 'undefined' ? true : props.fill} size={props.size || 16} src={\`${svg}\`} />`,
-      `}`,
+      `export const ${name} = forwardRef((props: IconProps, ref: ForwardedRef<SVGSVGElement>) => {`,
+      `return <Icon {...props} fill={typeof props.fill === 'string' ? props.fill : props.fill !== false} ref={ref} size={props.size || 16} src={\`${svg}\`} />`,
+      `})`,
       ``
     ].join('\n'),
     {

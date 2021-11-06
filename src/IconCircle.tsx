@@ -1,5 +1,5 @@
 import { Icon, IconProps } from '@queelag/react-core'
-import React from 'react'
+import React, { ForwardedRef, forwardRef } from 'react'
 
 /**
  * Usage:
@@ -14,13 +14,14 @@ import React from 'react'
  *
  * @category Component
  */
-export function IconCircle(props: Omit<IconProps, 'svg'>) {
+export const IconCircle = forwardRef((props: IconProps, ref: ForwardedRef<SVGSVGElement>) => {
   return (
     <Icon
       {...props}
-      fill={typeof props.fill === 'undefined' ? true : props.fill}
+      fill={typeof props.fill === 'string' ? props.fill : props.fill !== false}
+      ref={ref}
       size={props.size || 16}
       src={`<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M12,2C6.47,2,2,6.47,2,12s4.47,10,10,10s10-4.47,10-10S17.53,2,12,2z"/></g></g></svg>`}
     />
   )
-}
+})
