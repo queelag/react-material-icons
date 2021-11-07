@@ -19,8 +19,8 @@ fs.readdirSync('./assets').forEach((v) => {
 
   tsx = prettier.format(
     [
-      `import { Icon, IconProps } from '@queelag/react-core'`,
-      `import React, { ForwardedRef, forwardRef } from 'react'`,
+      `import { forwardRef, Icon, IconProps } from '@queelag/react-core'`,
+      `import React, { ForwardedRef } from 'react'`,
       ``,
       `/**`,
       ` * Usage:`,
